@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="img/maps.png" />
+    <title>大阪ガイド</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#8B4513", secondary: "#DEB887" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <!-- ナビゲーション -->
+    <header class="fixed w-full bg-white bg-opacity-95 shadow-md z-50">
+      <div
+        class="container mx-auto px-6 md:px-8 lg:px-12 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <img src="img/sakura.png" alt="大阪ガイド ロゴ" class="h-10 w-auto" />
+        </div>
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#highlights"
+            class="font-bold text-gray-700 hover:text-primary transition-colors"
+            >見どころ</a
+          >
+          <a
+            href="#tips"
+            class="font-bold text-gray-700 hover:text-primary transition-colors"
+            >旅行アドバイス</a
+          >
+          <a
+            href="#gallery"
+            class="font-bold text-gray-700 hover:text-primary transition-colors"
+            >フォトギャラリー</a
+          >
+          <a
+            href="#map"
+            class="font-bold text-gray-700 hover:text-primary transition-colors"
+            >マップ</a
+          >
+          <a
+            href="#booking"
+            class="font-bold text-gray-700 hover:text-primary transition-colors"
+            >予約</a
+          >
+        </nav>
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-2">
+            <span class="text-sm text-gray-600">日本語</span>
+            <label class="custom-switch">
+              <input type="checkbox" id="languageToggle" />
+              <span class="slider"></span>
+            </label>
+            <span class="text-sm text-gray-600">English</span>
+          </div>
+          <div class="md:hidden w-10 h-10 flex items-center justify-center">
+            <button id="menuToggle" class="text-gray-700 hover:text-primary">
+              <i class="ri-menu-line ri-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- モバイルメニュー -->
+      <div id="mobileMenu" class="hidden md:hidden bg-white w-full">
+        <div
+          class="container mx-auto px-6 md:px-8 lg:px-12 py-3 flex flex-col space-y-4"
+        >
+          <a
+            href="#highlights"
+            class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100"
+            >見どころ</a
+          >
+          <a
+            href="#tips"
+            class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100"
+            >旅行アドバイス</a
+          >
+          <a
+            href="#gallery"
+            class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100"
+            >フォトギャラリー</a
+          >
+          <a
+            href="#map"
+            class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100"
+            >マップ</a
+          >
+          <a
+            href="#booking"
+            class="text-gray-700 hover:text-primary transition-colors py-2"
+            >予約</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- ヒーローセクション -->
+    <section class="hero-section h-screen flex items-center">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12 w-full">
+        <div
+          class="max-w-4xl text-white backdrop-blur-sm bg-black bg-opacity-20 p-8 rounded-lg"
+        >
+          <h1
+            class="text-7xl md:text-8xl lg:text-9xl font-serif font-bold mb-8 tracking-wide"
+            style="
+              font-family: 'Noto Serif JP', serif;
+              text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            "
+          >
+            大阪
+          </h1>
+          <p
+            class="text-3xl md:text-4xl lg:text-5xl mb-12"
+            style="
+              font-family: 'Noto Serif JP', serif;
+              text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            "
+          >
+            千年の歴史と現代が織りなす魅惑の都市
+          </p>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6"
+          >
+            <a
+              href="#booking"
+              class="bg-primary hover:bg-opacity-90 text-white px-12 py-5 rounded-button font-bold text-2xl whitespace-nowrap transition-all transform hover:scale-105"
+              >予約する</a
+            >
+            <a
+              href="#highlights"
+              class="bg-white bg-opacity-20 hover:bg-opacity-30 backdrop-blur-sm text-white border-2 border-white px-12 py-5 rounded-button font-bold text-2xl whitespace-nowrap transition-all transform hover:scale-105"
+              >詳細を見る</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <a href="#highlights" class="text-white">
+          <div class="w-10 h-10 flex items-center justify-center">
+            <i class="ri-arrow-down-line ri-xl"></i>
+          </div>
+        </a>
+      </div>
+    </section>
+    <!-- 見どころセクション -->
+    <section id="highlights" class="py-20 bg-white">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-serif font-bold mb-4"
+            style="font-family: 'Noto Serif JP', serif"
+          >
+            大阪の見どころ
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            大阪は日本の歴史と現代文化が融合する魅力的な都市です。伝統的な寺社仏閣から最先端のエンターテイメント施設まで、様々な魅力が詰まっています。
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- 大阪城 -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:translate-y-[-5px]"
+          >
+            <div class="h-60 overflow-hidden">
+              <img
+                src="img/大阪城.jpg"
+                alt="大阪城"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+              >
+                <i class="ri-building-4-line text-primary ri-lg"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">大阪城</h3>
+              <p class="text-gray-600 mb-4">
+                豊臣秀吉によって築かれた壮大な城郭。春には美しい桜の名所となり、四季折々の景色を楽しめます。
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-primary hover:text-primary-dark"
+              >
+                詳細を見る
+                <div class="w-5 h-5 flex items-center justify-center ml-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- 道頓堀 -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:translate-y-[-5px]"
+          >
+            <div class="h-60 overflow-hidden">
+              <img
+                src="img/道頓堀.jpg"
+                alt="道頓堀"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+              >
+                <i class="ri-store-2-line text-primary ri-lg"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">道頓堀</h3>
+              <p class="text-gray-600 mb-4">
+                大阪の食文化の中心地。グリコの看板やかに道楽など象徴的な看板と共に、多彩なグルメを楽しめます。
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-primary hover:text-primary-dark"
+              >
+                詳細を見る
+                <div class="w-5 h-5 flex items-center justify-center ml-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <!-- ユニバーサル・スタジオ・ジャパン -->
+          <div
+            class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:translate-y-[-5px]"
+          >
+            <div class="h-60 overflow-hidden">
+              <img
+                src="img/ユニバーサル・スタジオ・ジャパン.jpg"
+                class="w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4"
+              >
+                <i class="ri-film-line text-primary ri-lg"></i>
+              </div>
+              <h3 class="text-xl font-bold mb-2">
+                ユニバーサル・スタジオ・ジャパン
+              </h3>
+              <p class="text-gray-600 mb-4">
+                人気映画のアトラクションが楽しめるテーマパーク。ハリー・ポッターやミニオンなど、世界観に浸れます。
+              </p>
+              <a
+                href="#"
+                class="inline-flex items-center text-primary hover:text-primary-dark"
+              >
+                詳細を見る
+                <div class="w-5 h-5 flex items-center justify-center ml-1">
+                  <i class="ri-arrow-right-line"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 旅行アドバイスセクション -->
+    <section id="tips" class="py-20 washi-bg">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-serif font-bold mb-4"
+            style="font-family: 'Noto Serif JP', serif"
+          >
+            旅行アドバイス
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            大阪を最大限に楽しむための情報とヒントをご紹介します。
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- 季節ごとの観光情報 -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <div class="w-8 h-8 flex items-center justify-center mr-2">
+                <i class="ri-sun-line text-primary"></i>
+              </div>
+              季節ごとの観光情報
+            </h3>
+            <div class="space-y-6">
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h4 class="text-lg font-bold mb-2 text-primary">
+                  春 (3月〜5月)
+                </h4>
+                <p class="text-gray-600">
+                  桜の季節。大阪城公園や造幣局の桜の通り抜けが特におすすめです。気温は穏やかで観光に最適な時期です。
+                </p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h4 class="text-lg font-bold mb-2 text-primary">
+                  夏 (6月〜8月)
+                </h4>
+                <p class="text-gray-600">
+                  天神祭りなどの夏祭りが開催される時期。暑さと湿気が強いので、水分補給と涼しい場所での休憩を忘れずに。
+                </p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h4 class="text-lg font-bold mb-2 text-primary">
+                  秋 (9月〜11月)
+                </h4>
+                <p class="text-gray-600">
+                  紅葉の季節。万博記念公園や箕面公園が美しい紅葉スポットです。気候も快適で観光に適しています。
+                </p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow-md">
+                <h4 class="text-lg font-bold mb-2 text-primary">
+                  冬 (12月〜2月)
+                </h4>
+                <p class="text-gray-600">
+                  イルミネーションが美しい季節。大阪城イルミナージュや光の饗宴が開催されます。寒さは東京より穏やかです。
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- 現地での注意点や文化的アドバイス -->
+          <div>
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <div class="w-8 h-8 flex items-center justify-center mr-2">
+                <i class="ri-information-line text-primary"></i>
+              </div>
+              現地での注意点と文化的アドバイス
+            </h3>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+              <h4 class="text-lg font-bold mb-4">交通アドバイス</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span
+                    >大阪周遊パスを購入すると、主要観光施設の入場料と市内の交通機関が乗り放題になります。</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span
+                    >ICOCAカードを購入すると、関西圏の電車やバスがスムーズに利用できます。</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span
+                    >地下鉄は御堂筋線と中央線が主要観光地を結んでいます。</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md mb-6">
+              <h4 class="text-lg font-bold mb-4">文化的マナー</h4>
+              <ul class="space-y-3">
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span
+                    >大阪の人々は東京より気さくで、店員との会話を楽しむことができます。</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span
+                    >「お好み焼き」や「たこ焼き」を食べる際は、提供された箸やピックを使いましょう。</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <div
+                    class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                  >
+                    <i class="ri-check-line"></i>
+                  </div>
+                  <span
+                    >エスカレーターは関西では右側に立ち、左側を急ぐ人のために空けます（東京とは逆）。</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h4 class="text-lg font-bold mb-4">便利な日本語フレーズ</h4>
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <p class="font-bold text-primary">こんにちは</p>
+                  <p class="text-sm text-gray-600">Konnichiwa (こんにちは)</p>
+                  <p class="text-xs">Hello</p>
+                </div>
+                <div>
+                  <p class="font-bold text-primary">ありがとう</p>
+                  <p class="text-sm text-gray-600">Arigatou (ありがとう)</p>
+                  <p class="text-xs">Thank you</p>
+                </div>
+                <div>
+                  <p class="font-bold text-primary">すみません</p>
+                  <p class="text-sm text-gray-600">Sumimasen (すみません)</p>
+                  <p class="text-xs">Excuse me/Sorry</p>
+                </div>
+                <div>
+                  <p class="font-bold text-primary">いくらですか</p>
+                  <p class="text-sm text-gray-600">
+                    Ikura desu ka (いくらですか)
+                  </p>
+                  <p class="text-xs">How much is it?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- フォトギャラリーセクション -->
+    <section id="gallery" class="py-20 bg-white">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-serif font-bold mb-4"
+            style="font-family: 'Noto Serif JP', serif"
+          >
+            フォトギャラリー
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            大阪の魅力的な風景や文化を写真でご紹介します。
+          </p>
+        </div>
+        <div class="flex justify-center mb-8">
+          <div class="inline-flex bg-gray-100 p-1 rounded-full">
+            <button
+              class="gallery-filter-btn active px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap bg-primary text-white"
+              data-filter="all"
+            >
+              すべて
+            </button>
+            <button
+              class="gallery-filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="temples"
+            >
+              寺社仏閣
+            </button>
+            <button
+              class="gallery-filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="food"
+            >
+              グルメ
+            </button>
+            <button
+              class="gallery-filter-btn px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap"
+              data-filter="cityscape"
+            >
+              街並み
+            </button>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+        >
+          <!-- 寺社仏閣 -->
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="temples"
+          >
+            <img
+              src="img/四天王寺.jpg"
+              alt="四天王寺"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">四天王寺</h4>
+              <p class="text-sm text-gray-600">日本最古の官寺</p>
+            </div>
+          </div>
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="temples"
+          >
+            <img
+              src="img/住吉大社.jpg"
+              alt="住吉大社"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">住吉大社</h4>
+              <p class="text-sm text-gray-600">日本を代表する神社</p>
+            </div>
+          </div>
+          <!-- グルメ -->
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="food"
+          >
+            <img
+              src="img/たこ焼き.jpg"
+              alt="たこ焼き"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">たこ焼き</h4>
+              <p class="text-sm text-gray-600">大阪の名物グルメ</p>
+            </div>
+          </div>
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="food"
+          >
+            <img
+              src="img/お好み焼き.jpg"
+              alt="お好み焼き"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">お好み焼き</h4>
+              <p class="text-sm text-gray-600">関西風の味わい</p>
+            </div>
+          </div>
+          <!-- 街並み -->
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="cityscape"
+          >
+            <img
+              src="img/新世界.jpg"
+              alt="新世界"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">新世界</h4>
+              <p class="text-sm text-gray-600">レトロな雰囲気の街</p>
+            </div>
+          </div>
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="cityscape"
+          >
+            <img
+              src="img/梅田スカイビル.jpg"
+              alt="梅田スカイビル"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">梅田スカイビル</h4>
+              <p class="text-sm text-gray-600">空中庭園展望台</p>
+            </div>
+          </div>
+          <!-- 寺社仏閣 -->
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="temples"
+          >
+            <img
+              src="img/法善寺.png"
+              alt="法善寺"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">法善寺</h4>
+              <p class="text-sm text-gray-600">水掛不動尊</p>
+            </div>
+          </div>
+          <!-- 街並み -->
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="cityscape"
+          >
+            <img
+              src="img/黒門市場.jpg"
+              alt="黒門市場"
+              class="w-full h-64 object-cover object-top transition-all"
+            />
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">黒門市場</h4>
+              <p class="text-sm text-gray-600">大阪の台所</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 画像モーダル -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage" />
+    </div>
+    <!-- マップセクション -->
+    <section id="map" class="py-20 seigaiha-bg">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12">
+        <div class="text-center mb-16">
+          <h2
+            class="text-3xl md:text-4xl font-serif font-bold mb-4"
+            style="font-family: 'Noto Serif JP', serif"
+          >
+            大阪観光マップ
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            主要観光スポットの位置をご確認いただけます。
+          </p>
+        </div>
+        <div class="bg-white p-4 rounded-lg shadow-lg">
+          <div class="flex flex-col md:flex-row mb-4">
+            <div class="flex space-x-2 mb-4 md:mb-0 md:mr-6">
+              <label class="custom-checkbox flex items-center">
+                <input
+                  type="checkbox"
+                  checked
+                  class="map-filter"
+                  data-type="attractions"
+                />
+                <span class="checkmark"></span>
+                <span class="ml-2 text-sm">観光スポット</span>
+              </label>
+            </div>
+            <div class="flex space-x-2 mb-4 md:mb-0 md:mr-6">
+              <label class="custom-checkbox flex items-center">
+                <input
+                  type="checkbox"
+                  checked
+                  class="map-filter"
+                  data-type="restaurants"
+                />
+                <span class="checkmark"></span>
+                <span class="ml-2 text-sm">レストラン</span>
+              </label>
+            </div>
+            <div class="flex space-x-2 mb-4 md:mb-0 md:mr-6">
+              <label class="custom-checkbox flex items-center">
+                <input
+                  type="checkbox"
+                  checked
+                  class="map-filter"
+                  data-type="hotels"
+                />
+                <span class="checkmark"></span>
+                <span class="ml-2 text-sm">ホテル</span>
+              </label>
+            </div>
+            <div class="flex space-x-2">
+              <label class="custom-checkbox flex items-center">
+                <input
+                  type="checkbox"
+                  checked
+                  class="map-filter"
+                  data-type="shopping"
+                />
+                <span class="checkmark"></span>
+                <span class="ml-2 text-sm">ショッピング</span>
+              </label>
+            </div>
+          </div>
+          <div
+            class="h-[500px] w-full rounded-lg overflow-hidden relative"
+            style="
+              background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
+              background-size: cover;
+              background-position: center;
+            "
+          >
+            <!-- マップ上のピン -->
+            <div
+              class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
+              data-type="attractions"
+              data-name="大阪城"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full animate-bounce"
+              >
+                <i class="ri-map-pin-line"></i>
+              </div>
+            </div>
+            <div
+              class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
+              data-type="restaurants"
+              data-name="道頓堀グルメスポット"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center bg-[#D2691E] text-white rounded-full animate-bounce"
+              >
+                <i class="ri-restaurant-line"></i>
+              </div>
+            </div>
+            <div
+              class="absolute bottom-1/4 right-1/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
+              data-type="attractions"
+              data-name="ユニバーサル・スタジオ・ジャパン"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full animate-bounce"
+              >
+                <i class="ri-film-line"></i>
+              </div>
+            </div>
+            <div
+              class="absolute top-2/3 left-2/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
+              data-type="shopping"
+              data-name="心斎橋ショッピングエリア"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center bg-[#DEB887] text-white rounded-full animate-bounce"
+              >
+                <i class="ri-shopping-bag-line"></i>
+              </div>
+            </div>
+            <div
+              class="absolute top-1/3 right-1/4 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
+              data-type="hotels"
+              data-name="梅田ホテル地区"
+            >
+              <div
+                class="w-8 h-8 flex items-center justify-center bg-[#8B4513] text-white rounded-full animate-bounce"
+              >
+                <i class="ri-hotel-line"></i>
+              </div>
+            </div>
+          </div>
+          <div id="map-info" class="mt-4 p-4 bg-gray-50 rounded-lg hidden">
+            <h3 class="text-lg font-bold mb-2" id="map-info-title">
+              スポット名
+            </h3>
+            <p class="text-gray-600" id="map-info-desc">
+              スポットの説明がここに表示されます。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 予約CTAセクション -->
+    <section id="booking" class="py-20 japanese-pattern">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12">
+        <div
+          class="max-w-5xl mx-auto bg-white rounded-lg shadow-xl overflow-hidden"
+        >
+          <div class="flex flex-col md:flex-row">
+            <div class="md:w-1/2 p-8 md:p-12">
+              <h2
+                class="text-3xl font-serif font-bold mb-4"
+                style="font-family: 'Noto Serif JP', serif"
+              >
+                大阪旅行を予約する
+              </h2>
+              <p class="text-gray-600 mb-8">
+                今すぐ予約して、大阪の魅力を体験しましょう。早期予約特典もご用意しています。
+              </p>
+              <form>
+                <div class="mb-4">
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >お名前</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder="山田 太郎"
+                    required
+                  />
+                </div>
+                <div class="mb-4">
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-gray-700 mb-1"
+                    >メールアドレス</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                    placeholder="example@email.com"
+                    required
+                  />
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label
+                      for="checkin"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >チェックイン</label
+                    >
+                    <input
+                      type="date"
+                      id="checkin"
+                      class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="checkout"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >チェックアウト</label
+                    >
+                    <input
+                      type="date"
+                      id="checkout"
+                      class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                  <div>
+                    <label
+                      for="adults"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >大人</label
+                    >
+                    <div class="flex">
+                      <button
+                        type="button"
+                        class="px-3 py-2 bg-gray-200 rounded-l"
+                        id="adultsDecrement"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        id="adults"
+                        class="w-full px-4 py-2 border-y border-gray-300 text-center focus:outline-none"
+                        value="2"
+                        min="1"
+                        max="10"
+                      />
+                      <button
+                        type="button"
+                        class="px-3 py-2 bg-gray-200 rounded-r"
+                        id="adultsIncrement"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      for="children"
+                      class="block text-sm font-medium text-gray-700 mb-1"
+                      >子供</label
+                    >
+                    <div class="flex">
+                      <button
+                        type="button"
+                        class="px-3 py-2 bg-gray-200 rounded-l"
+                        id="childrenDecrement"
+                      >
+                        -
+                      </button>
+                      <input
+                        type="number"
+                        id="children"
+                        class="w-full px-4 py-2 border-y border-gray-300 text-center focus:outline-none"
+                        value="0"
+                        min="0"
+                        max="10"
+                      />
+                      <button
+                        type="button"
+                        class="px-3 py-2 bg-gray-200 rounded-r"
+                        id="childrenIncrement"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-6">
+                  <label class="block text-sm font-medium text-gray-700 mb-2"
+                    >プラン選択</label
+                  >
+                  <div class="space-y-2">
+                    <label class="custom-radio flex items-center">
+                      <input type="radio" name="plan" checked />
+                      <span class="radio-mark"></span>
+                      <span class="ml-2">スタンダードプラン (¥35,000〜)</span>
+                    </label>
+                    <label class="custom-radio flex items-center">
+                      <input type="radio" name="plan" />
+                      <span class="radio-mark"></span>
+                      <span class="ml-2">プレミアムプラン (¥55,000〜)</span>
+                    </label>
+                    <label class="custom-radio flex items-center">
+                      <input type="radio" name="plan" />
+                      <span class="radio-mark"></span>
+                      <span class="ml-2">ファミリープラン (¥65,000〜)</span>
+                    </label>
+                  </div>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-primary hover:bg-opacity-90 text-white font-medium py-3 px-4 rounded-button whitespace-nowrap transition-all"
+                >
+                  今すぐ予約する
+                </button>
+              </form>
+            </div>
+            <div
+              class="md:w-1/2 bg-cover bg-center"
+              style="
+                background-image: url('https://readdy.ai/api/search-image?query=Luxurious%20traditional%20Japanese%20ryokan%20room%20with%20tatami%20mats%2C%20futon%20beds%2C%20paper%20sliding%20doors%2C%20wooden%20bath%2C%20view%20of%20Japanese%20garden%2C%20warm%20ambient%20lighting%2C%20elegant%20minimalist%20design%2C%20high%20quality%20interior%20photography&width=600&height=800&seq=13&orientation=portrait');
+              "
+            >
+              <div
+                class="h-full bg-primary bg-opacity-10 p-8 md:p-12 flex flex-col justify-end"
+              >
+                <div class="bg-white bg-opacity-90 p-6 rounded-lg">
+                  <h3 class="text-xl font-bold mb-4">予約特典</h3>
+                  <ul class="space-y-3">
+                    <li class="flex items-start">
+                      <div
+                        class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>大阪城入場券プレゼント</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div
+                        class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>関西空港からの送迎サービス</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div
+                        class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>大阪グルメマップ進呈</span>
+                    </li>
+                    <li class="flex items-start">
+                      <div
+                        class="w-5 h-5 flex items-center justify-center text-primary mt-0.5 mr-2"
+                      >
+                        <i class="ri-check-line"></i>
+                      </div>
+                      <span>30日前までのキャンセル無料</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- フッター -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6 md:px-8 lg:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <h3 class="text-xl font-['Pacifico'] mb-4">logo</h3>
+            <p class="text-gray-400 mb-4">
+              大阪の魅力を最大限に体験できる旅行プランをご提供します。
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-facebook-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-twitter-x-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-instagram-fill"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-youtube-fill"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">リンク</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >ホーム</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#highlights"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >見どころ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#tips"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >旅行アドバイス</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#gallery"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >フォトギャラリー</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#map"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >マップ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#booking"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >予約</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">お問い合わせ</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mt-0.5 mr-2"
+                >
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <span class="text-gray-400"
+                  >〒530-0001 大阪府大阪市北区梅田1-1-1</span
+                >
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mt-0.5 mr-2"
+                >
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="text-gray-400">06-1234-5678</span>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-5 h-5 flex items-center justify-center text-gray-400 mt-0.5 mr-2"
+                >
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-400">info@osakatravel.jp</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-4">ニュースレター</h4>
+            <p class="text-gray-400 mb-4">
+              最新の情報やお得な情報をお届けします。
+            </p>
+            <form class="flex">
+              <input
+                type="email"
+                placeholder="メールアドレス"
+                class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-900"
+              />
+              <button
+                type="submit"
+                class="bg-primary hover:bg-opacity-90 px-4 py-2 rounded-r whitespace-nowrap transition-all"
+              >
+                登録
+              </button>
+            </form>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            &copy; 2025 大阪トラベル. All rights reserved.
+          </p>
+          <div class="flex space-x-4">
+            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+              <i class="ri-visa-fill ri-lg"></i>
+            </div>
+            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+              <i class="ri-mastercard-fill ri-lg"></i>
+            </div>
+            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+              <i class="ri-paypal-fill ri-lg"></i>
+            </div>
+            <div class="w-8 h-8 flex items-center justify-center text-gray-400">
+              <i class="ri-alipay-fill ri-lg"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
