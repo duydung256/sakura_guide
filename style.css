@@ -7,8 +7,8 @@ body {
 }
 .hero-section {
   background-image: linear-gradient(
-      rgba(43, 24, 16, 0.4),
-      rgba(43, 24, 16, 0.4)
+      rgba(43, 24, 16, 0.2),
+      rgba(43, 24, 16, 0.2)
     ),
     url("img/bg.jpg");
   background-size: cover;

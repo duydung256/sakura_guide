@@ -51,7 +51,13 @@
         class="container mx-auto px-6 md:px-8 lg:px-12 py-3 flex justify-between items-center"
       >
         <div class="flex items-center">
-          <img src="img/sakura.png" alt="大阪ガイド ロゴ" class="h-10 w-auto" />
+          <img src="img/maps.png" alt="大阪ガイド ロゴ" class="h-10 w-auto" />
+          <span
+            class="ml-3 text-2xl font-bold text-primary hidden sm:inline"
+            style="font-family: 'Noto Serif JP', serif"
+          >
+            大阪ガイド
+          </span>
         </div>
         <nav class="hidden md:flex space-x-8">
           <a
@@ -68,11 +74,6 @@
             href="#gallery"
             class="font-bold text-gray-700 hover:text-primary transition-colors"
             >フォトギャラリー</a
-          >
-          <a
-            href="#map"
-            class="font-bold text-gray-700 hover:text-primary transition-colors"
-            >マップ</a
           >
           <a
             href="#booking"
@@ -117,11 +118,6 @@
             >フォトギャラリー</a
           >
           <a
-            href="#map"
-            class="text-gray-700 hover:text-primary transition-colors py-2 border-b border-gray-100"
-            >マップ</a
-          >
-          <a
             href="#booking"
             class="text-gray-700 hover:text-primary transition-colors py-2"
             >予約</a
@@ -133,10 +129,10 @@
     <section class="hero-section h-screen flex items-center">
       <div class="container mx-auto px-6 md:px-8 lg:px-12 w-full">
         <div
-          class="max-w-4xl text-white backdrop-blur-sm bg-black bg-opacity-20 p-8 rounded-lg"
+          class="max-w-4xl text-white backdrop-blur-sm bg-black bg-opacity-5 p-8 rounded-lg"
         >
           <h1
-            class="text-7xl md:text-8xl lg:text-9xl font-serif font-bold mb-8 tracking-wide"
+            class="text-8xl md:text-8xl lg:text-9xl font-serif font-bold mb-8 tracking-wide"
             style="
               font-family: 'Noto Serif JP', serif;
               text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -145,7 +141,7 @@
             大阪
           </h1>
           <p
-            class="text-3xl md:text-4xl lg:text-5xl mb-12"
+            class="text-3xl md:text-4xl lg:text-5xl md:whitespace-nowrap mb-12"
             style="
               font-family: 'Noto Serif JP', serif;
               text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -198,10 +194,12 @@
           <div
             class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:translate-y-[-5px]"
           >
-            <div class="h-60 overflow-hidden">
+            <div class="max-h-60 overflow-hidden">
               <img
-                src="img/大阪城.jpg"
+                src="img/大阪城.webp"
                 alt="大阪城"
+                width="400"
+                height="240"
                 class="w-full h-full object-cover object-top"
               />
             </div>
@@ -216,8 +214,10 @@
                 豊臣秀吉によって築かれた壮大な城郭。春には美しい桜の名所となり、四季折々の景色を楽しめます。
               </p>
               <a
-                href="#"
+                href="https://ja.wikipedia.org/wiki/大阪城"
                 class="inline-flex items-center text-primary hover:text-primary-dark"
+                target="_blank"
+                rel="noopener"
               >
                 詳細を見る
                 <div class="w-5 h-5 flex items-center justify-center ml-1">
@@ -230,10 +230,12 @@
           <div
             class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:translate-y-[-5px]"
           >
-            <div class="h-60 overflow-hidden">
+            <div class="max-h-60 overflow-hidden">
               <img
                 src="img/道頓堀.jpg"
                 alt="道頓堀"
+                width="400"
+                height="240"
                 class="w-full h-full object-cover object-top"
               />
             </div>
@@ -248,8 +250,10 @@
                 大阪の食文化の中心地。グリコの看板やかに道楽など象徴的な看板と共に、多彩なグルメを楽しめます。
               </p>
               <a
-                href="#"
+                href="https://ja.wikipedia.org/wiki/道頓堀"
                 class="inline-flex items-center text-primary hover:text-primary-dark"
+                target="_blank"
+                rel="noopener"
               >
                 詳細を見る
                 <div class="w-5 h-5 flex items-center justify-center ml-1">
@@ -262,9 +266,12 @@
           <div
             class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all hover:translate-y-[-5px]"
           >
-            <div class="h-60 overflow-hidden">
+            <div class="max-h-60 overflow-hidden">
               <img
-                src="img/ユニバーサル・スタジオ・ジャパン.jpg"
+                src="img/ユニバーサル・スタジオ・ジャパン.webp"
+                alt="ユニバーサル・スタジオ・ジャパン"
+                width="400"
+                height="240"
                 class="w-full h-full object-cover object-top"
               />
             </div>
@@ -281,8 +288,10 @@
                 人気映画のアトラクションが楽しめるテーマパーク。ハリー・ポッターやミニオンなど、世界観に浸れます。
               </p>
               <a
-                href="#"
+                href="https://ja.wikipedia.org/wiki/ユニバーサル・スタジオ・ジャパン"
                 class="inline-flex items-center text-primary hover:text-primary-dark"
+                target="_blank"
+                rel="noopener"
               >
                 詳細を見る
                 <div class="w-5 h-5 flex items-center justify-center ml-1">
@@ -511,11 +520,16 @@
             class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
             data-category="temples"
           >
-            <img
-              src="img/四天王寺.jpg"
-              alt="四天王寺"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/四天王寺.jpg"
+                alt="四天王寺"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-center transition-all"
+                loading="lazy"
+              />
+            </div>
             <div class="p-3 bg-white">
               <h4 class="font-medium">四天王寺</h4>
               <p class="text-sm text-gray-600">日本最古の官寺</p>
@@ -525,11 +539,16 @@
             class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
             data-category="temples"
           >
-            <img
-              src="img/住吉大社.jpg"
-              alt="住吉大社"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/住吉大社.webp"
+                alt="住吉大社"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-top transition-all"
+                loading="lazy"
+              />
+            </div>
             <div class="p-3 bg-white">
               <h4 class="font-medium">住吉大社</h4>
               <p class="text-sm text-gray-600">日本を代表する神社</p>
@@ -540,11 +559,16 @@
             class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
             data-category="food"
           >
-            <img
-              src="img/たこ焼き.jpg"
-              alt="たこ焼き"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/たこ焼き.jpg"
+                alt="たこ焼き"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-top transition-all"
+                loading="lazy"
+              />
+            </div>
             <div class="p-3 bg-white">
               <h4 class="font-medium">たこ焼き</h4>
               <p class="text-sm text-gray-600">大阪の名物グルメ</p>
@@ -554,11 +578,16 @@
             class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
             data-category="food"
           >
-            <img
-              src="img/お好み焼き.jpg"
-              alt="お好み焼き"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/お好み焼き.jpg"
+                alt="お好み焼き"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-top transition-all"
+                loading="lazy"
+              />
+            </div>
             <div class="p-3 bg-white">
               <h4 class="font-medium">お好み焼き</h4>
               <p class="text-sm text-gray-600">関西風の味わい</p>
@@ -569,11 +598,16 @@
             class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
             data-category="cityscape"
           >
-            <img
-              src="img/新世界.jpg"
-              alt="新世界"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/新世界.jpg"
+                alt="新世界"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-top transition-all"
+                loading="lazy"
+              />
+            </div>
             <div class="p-3 bg-white">
               <h4 class="font-medium">新世界</h4>
               <p class="text-sm text-gray-600">レトロな雰囲気の街</p>
@@ -583,44 +617,60 @@
             class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
             data-category="cityscape"
           >
-            <img
-              src="img/梅田スカイビル.jpg"
-              alt="梅田スカイビル"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/梅田スカイビル.webp"
+                alt="梅田スカイビル"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-top transition-all"
+                loading="lazy"
+              />
+            </div>
             <div class="p-3 bg-white">
               <h4 class="font-medium">梅田スカイビル</h4>
               <p class="text-sm text-gray-600">空中庭園展望台</p>
             </div>
           </div>
-          <!-- 寺社仏閣 -->
-          <div
-            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
-            data-category="temples"
-          >
-            <img
-              src="img/法善寺.png"
-              alt="法善寺"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
-            <div class="p-3 bg-white">
-              <h4 class="font-medium">法善寺</h4>
-              <p class="text-sm text-gray-600">水掛不動尊</p>
-            </div>
-          </div>
-          <!-- 街並み -->
           <div
             class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
             data-category="cityscape"
           >
-            <img
-              src="img/黒門市場.jpg"
-              alt="黒門市場"
-              class="w-full h-64 object-cover object-top transition-all"
-            />
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/黒門市場.jpg"
+                alt="黒門市場"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-top transition-all"
+                loading="lazy"
+              />
+            </div>
             <div class="p-3 bg-white">
               <h4 class="font-medium">黒門市場</h4>
               <p class="text-sm text-gray-600">大阪の台所</p>
+            </div>
+          </div>
+          <!-- 勝尾寺 -->
+          <div
+            class="gallery-item rounded-lg overflow-hidden shadow-md cursor-pointer"
+            data-category="temples"
+          >
+            <div class="w-full h-64 overflow-hidden">
+              <img
+                src="img/勝尾寺.jpg"
+                alt="勝尾寺"
+                width="400"
+                height="256"
+                class="w-full h-full object-cover object-top transition-all"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-3 bg-white">
+              <h4 class="font-medium">勝尾寺</h4>
+              <p class="text-sm text-gray-600">
+                「勝ちダルマ」で有名な勝運祈願の寺
+              </p>
             </div>
           </div>
         </div>
@@ -631,147 +681,6 @@
       <span class="close">&times;</span>
       <img class="modal-content" id="modalImage" />
     </div>
-    <!-- マップセクション -->
-    <section id="map" class="py-20 seigaiha-bg">
-      <div class="container mx-auto px-6 md:px-8 lg:px-12">
-        <div class="text-center mb-16">
-          <h2
-            class="text-3xl md:text-4xl font-serif font-bold mb-4"
-            style="font-family: 'Noto Serif JP', serif"
-          >
-            大阪観光マップ
-          </h2>
-          <p class="text-gray-600 max-w-2xl mx-auto">
-            主要観光スポットの位置をご確認いただけます。
-          </p>
-        </div>
-        <div class="bg-white p-4 rounded-lg shadow-lg">
-          <div class="flex flex-col md:flex-row mb-4">
-            <div class="flex space-x-2 mb-4 md:mb-0 md:mr-6">
-              <label class="custom-checkbox flex items-center">
-                <input
-                  type="checkbox"
-                  checked
-                  class="map-filter"
-                  data-type="attractions"
-                />
-                <span class="checkmark"></span>
-                <span class="ml-2 text-sm">観光スポット</span>
-              </label>
-            </div>
-            <div class="flex space-x-2 mb-4 md:mb-0 md:mr-6">
-              <label class="custom-checkbox flex items-center">
-                <input
-                  type="checkbox"
-                  checked
-                  class="map-filter"
-                  data-type="restaurants"
-                />
-                <span class="checkmark"></span>
-                <span class="ml-2 text-sm">レストラン</span>
-              </label>
-            </div>
-            <div class="flex space-x-2 mb-4 md:mb-0 md:mr-6">
-              <label class="custom-checkbox flex items-center">
-                <input
-                  type="checkbox"
-                  checked
-                  class="map-filter"
-                  data-type="hotels"
-                />
-                <span class="checkmark"></span>
-                <span class="ml-2 text-sm">ホテル</span>
-              </label>
-            </div>
-            <div class="flex space-x-2">
-              <label class="custom-checkbox flex items-center">
-                <input
-                  type="checkbox"
-                  checked
-                  class="map-filter"
-                  data-type="shopping"
-                />
-                <span class="checkmark"></span>
-                <span class="ml-2 text-sm">ショッピング</span>
-              </label>
-            </div>
-          </div>
-          <div
-            class="h-[500px] w-full rounded-lg overflow-hidden relative"
-            style="
-              background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');
-              background-size: cover;
-              background-position: center;
-            "
-          >
-            <!-- マップ上のピン -->
-            <div
-              class="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
-              data-type="attractions"
-              data-name="大阪城"
-            >
-              <div
-                class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full animate-bounce"
-              >
-                <i class="ri-map-pin-line"></i>
-              </div>
-            </div>
-            <div
-              class="absolute top-1/2 left-1/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
-              data-type="restaurants"
-              data-name="道頓堀グルメスポット"
-            >
-              <div
-                class="w-8 h-8 flex items-center justify-center bg-[#D2691E] text-white rounded-full animate-bounce"
-              >
-                <i class="ri-restaurant-line"></i>
-              </div>
-            </div>
-            <div
-              class="absolute bottom-1/4 right-1/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
-              data-type="attractions"
-              data-name="ユニバーサル・スタジオ・ジャパン"
-            >
-              <div
-                class="w-8 h-8 flex items-center justify-center bg-primary text-white rounded-full animate-bounce"
-              >
-                <i class="ri-film-line"></i>
-              </div>
-            </div>
-            <div
-              class="absolute top-2/3 left-2/3 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
-              data-type="shopping"
-              data-name="心斎橋ショッピングエリア"
-            >
-              <div
-                class="w-8 h-8 flex items-center justify-center bg-[#DEB887] text-white rounded-full animate-bounce"
-              >
-                <i class="ri-shopping-bag-line"></i>
-              </div>
-            </div>
-            <div
-              class="absolute top-1/3 right-1/4 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer map-pin"
-              data-type="hotels"
-              data-name="梅田ホテル地区"
-            >
-              <div
-                class="w-8 h-8 flex items-center justify-center bg-[#8B4513] text-white rounded-full animate-bounce"
-              >
-                <i class="ri-hotel-line"></i>
-              </div>
-            </div>
-          </div>
-          <div id="map-info" class="mt-4 p-4 bg-gray-50 rounded-lg hidden">
-            <h3 class="text-lg font-bold mb-2" id="map-info-title">
-              スポット名
-            </h3>
-            <p class="text-gray-600" id="map-info-desc">
-              スポットの説明がここに表示されます。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
     <!-- 予約CTAセクション -->
     <section id="booking" class="py-20 japanese-pattern">
       <div class="container mx-auto px-6 md:px-8 lg:px-12">
@@ -942,9 +851,7 @@
             </div>
             <div
               class="md:w-1/2 bg-cover bg-center"
-              style="
-                background-image: url('https://readdy.ai/api/search-image?query=Luxurious%20traditional%20Japanese%20ryokan%20room%20with%20tatami%20mats%2C%20futon%20beds%2C%20paper%20sliding%20doors%2C%20wooden%20bath%2C%20view%20of%20Japanese%20garden%2C%20warm%20ambient%20lighting%2C%20elegant%20minimalist%20design%2C%20high%20quality%20interior%20photography&width=600&height=800&seq=13&orientation=portrait');
-              "
+              style="background-image: url('img/hotel.webp')"
             >
               <div
                 class="h-full bg-primary bg-opacity-10 p-8 md:p-12 flex flex-col justify-end"
@@ -997,7 +904,7 @@
       <div class="container mx-auto px-6 md:px-8 lg:px-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 class="text-xl font-['Pacifico'] mb-4">logo</h3>
+            <h3 class="text-xl font-bold mb-4">大阪ガイド</h3>
             <p class="text-gray-400 mb-4">
               大阪の魅力を最大限に体験できる旅行プランをご提供します。
             </p>
@@ -1065,13 +972,6 @@
                   href="#gallery"
                   class="text-gray-400 hover:text-white transition-colors"
                   >フォトギャラリー</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#map"
-                  class="text-gray-400 hover:text-white transition-colors"
-                  >マップ</a
                 >
               </li>
               <li>
