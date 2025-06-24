@@ -10,7 +10,7 @@ body {
       rgba(43, 24, 16, 0.2),
       rgba(43, 24, 16, 0.2)
     ),
-    url("img/bg2.png");
+    url("img/bg.jpg");
   background-size: cover;
   background-position: center;
 }
