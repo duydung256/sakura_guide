@@ -1,21 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Initialize language manager first
+  const languageManager = new LanguageManager();
+  window.languageManager = languageManager;
+  
+  // Wait for language manager to load
+  setTimeout(() => {
+    initializeApp();
+  }, 500);
+});
+
+function initializeApp() {
   // Mobile menu
   const menuToggle = document.getElementById("menuToggle");
   const mobileMenu = document.getElementById("mobileMenu");
-  menuToggle.addEventListener("click", function () {
-    mobileMenu.classList.toggle("hidden");
-  });
-  // モバイルメニューのリンクをクリックしたらメニューを閉じる
-  const mobileLinks = mobileMenu.querySelectorAll("a");
-  mobileLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      mobileMenu.classList.add("hidden");
+  
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      mobileMenu.classList.toggle("hidden");
     });
+    
+    // モバイルメニューのリンクをクリックしたらメニューを閉じる
+    const mobileLinks = mobileMenu.querySelectorAll("a");
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        mobileMenu.classList.add("hidden");
+      });
+    });
+  }
+
+  // Language change handler
+  document.addEventListener('languageChanged', function(e) {
+    console.log('Language changed to:', e.detail.language);
+    // Refresh any dynamic content that needs language updates
+    updateDynamicContent();
   });
 
   // ギャラリーフィルター
   const filterButtons = document.querySelectorAll(".gallery-filter-btn");
   const galleryItems = document.querySelectorAll(".gallery-item");
+  
   filterButtons.forEach((button) => {
     button.addEventListener("click", function () {
       const filterValue = this.getAttribute("data-filter");
@@ -37,70 +60,109 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   });
+
   // 画像モーダル
   const modal = document.getElementById("imageModal");
   const modalImg = document.getElementById("modalImage");
   const closeBtn = document.getElementsByClassName("close")[0];
-  galleryItems.forEach((item) => {
-    item.addEventListener("click", function () {
-      modal.style.display = "flex";
-      modalImg.src = this.querySelector("img").src;
+  
+  if (modal && modalImg) {
+    galleryItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        modal.style.display = "flex";
+        modalImg.src = this.querySelector("img").src;
+        modalImg.alt = this.querySelector("img").alt;
+      });
     });
-  });
+  }
+  
   if (closeBtn) {
     closeBtn.addEventListener("click", function () {
       modal.style.display = "none";
     });
   }
-  window.addEventListener("click", function (event) {
-    if (event.target === modal) {
-      modal.style.display = "none";
+  
+  if (modal) {
+    window.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+
+  // Handle image loading animation
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  
+  lazyImages.forEach(img => {
+    img.addEventListener('load', function() {
+      this.classList.add('loaded');
+    });
+    
+    // If image is already loaded (cached)
+    if (img.complete) {
+      img.classList.add('loaded');
     }
   });
+  
+  // Rest of the existing code...
+  setupBookingForm();
+  setupSmoothScroll();
+}
 
-  // マップフィルター
-  const mapFilters = document.querySelectorAll(".map-filter");
-  const mapPins = document.querySelectorAll(".map-pin");
-  mapFilters.forEach((filter) => {
-    filter.addEventListener("change", function () {
-      const filterType = this.getAttribute("data-type");
-      const isChecked = this.checked;
-      mapPins.forEach((pin) => {
-        if (pin.getAttribute("data-type") === filterType) {
-          if (isChecked) {
-            pin.style.display = "block";
-          } else {
-            pin.style.display = "none";
-          }
-        }
-      });
+function updateDynamicContent() {
+  // Update gallery filter buttons and other dynamic content
+  if (window.languageManager) {
+    const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+    filterButtons.forEach(btn => {
+      const filter = btn.getAttribute('data-filter');
+      const translationKey = `gallery.filters.${filter}`;
+      const translation = window.languageManager.getTranslation(translationKey);
+      if (translation) {
+        btn.textContent = translation;
+      }
     });
-  });
-  // マップピン情報表示
-  const mapInfo = document.getElementById("map-info");
-  const mapInfoTitle = document.getElementById("map-info-title");
-  const mapInfoDesc = document.getElementById("map-info-desc");
-  const pinInfo = {
-    大阪城:
-      "豊臣秀吉によって築かれた壮大な城郭。春には美しい桜の名所となり、四季折々の景色を楽しめます。",
-    道頓堀グルメスポット:
-      "大阪の食文化の中心地。グリコの看板やかに道楽など象徴的な看板と共に、多彩なグルメを楽しめます。",
-    "ユニバーサル・スタジオ・ジャパン":
-      "人気映画のアトラクションが楽しめるテーマパーク。ハリー・ポッターやミニオンなど、世界観に浸れます。",
-    心斎橋ショッピングエリア:
-      "大阪を代表するショッピングスポット。ブランド店から地元ショップまで様々なお店が軒を連ねます。",
-    梅田ホテル地区:
-      "大阪駅周辺のホテル集積地。ラグジュアリーからビジネスまで様々なタイプのホテルがあります。",
-  };
-  mapPins.forEach((pin) => {
-    pin.addEventListener("click", function () {
-      const pinName = this.getAttribute("data-name");
-      mapInfoTitle.textContent = pinName;
-      mapInfoDesc.textContent = pinInfo[pinName];
-      mapInfo.classList.remove("hidden");
-    });
-  });
+    
+    // Update any other dynamic content that needs translation
+    updateBookingFormLabels();
+    updateGalleryItemTitles();
+  }
+}
 
+function updateBookingFormLabels() {
+  if (!window.languageManager) return;
+  
+  // Update form placeholders
+  const nameInput = document.getElementById('name');
+  if (nameInput) {
+    const placeholder = window.languageManager.getTranslation('booking.form.name');
+    if (placeholder) nameInput.placeholder = placeholder;
+  }
+  
+  const emailInput = document.getElementById('email');
+  if (emailInput) {
+    const placeholder = window.languageManager.getTranslation('booking.form.email');
+    if (placeholder) emailInput.placeholder = placeholder;
+  }
+}
+
+function updateGalleryItemTitles() {
+  if (!window.languageManager) return;
+  
+  // Update gallery item titles and descriptions
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  galleryItems.forEach(item => {
+    const titleElement = item.querySelector('h4');
+    const descElement = item.querySelector('p');
+    
+    if (titleElement && descElement) {
+      const itemKey = titleElement.textContent.toLowerCase().replace(/\s+/g, '');
+      // This would need to be mapped to the actual keys in the translation files
+      // For now, we'll keep the original Japanese text
+    }
+  });
+}
+
+function setupBookingForm() {
   // 大人数の増減
   const adultsDecrement = document.getElementById("adultsDecrement");
   const adultsIncrement = document.getElementById("adultsIncrement");
@@ -119,6 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  
   // 子供数の増減
   const childrenDecrement = document.getElementById("childrenDecrement");
   const childrenIncrement = document.getElementById("childrenIncrement");
@@ -137,6 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+  
   // 日付の最小値を今日に設定
   const today = new Date().toISOString().split("T")[0];
   const checkinInput = document.getElementById("checkin");
@@ -152,7 +216,9 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   }
+}
 
+function setupSmoothScroll() {
   // スムーズスクロール
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -173,4 +239,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
+}

@@ -1,0 +1,165 @@
+{
+  "site": {
+    "title": "Osaka Guide",
+    "description": "Complete guide to Osaka tourism, food, and travel information. Discover the best spots and travel tips in Japan's kitchen.",
+    "keywords": "Osaka, tourism, food, travel, guide, Japan, attractions, sightseeing"
+  },
+  "navigation": {
+    "home": "Home",
+    "highlights": "Highlights",
+    "tips": "Travel Tips",
+    "gallery": "Photo Gallery",
+    "booking": "Booking"
+  },
+  "hero": {
+    "title": "Osaka",
+    "subtitle": "A fascinating city where thousand years of history meets modernity",
+    "bookNow": "Book Now",
+    "viewDetails": "View Details"
+  },
+  "highlights": {
+    "title": "Osaka Highlights",
+    "subtitle": "Osaka is a fascinating city where Japanese history and modern culture blend together. From traditional temples to cutting-edge entertainment facilities, there's something for everyone.",
+    "viewMore": "View Details",
+    "places": {
+      "osaka_castle": {
+        "title": "Osaka Castle",
+        "description": "A magnificent castle built by Toyotomi Hideyoshi. It becomes a beautiful cherry blossom spot in spring and offers scenic views throughout the seasons."
+      },
+      "dotonbori": {
+        "title": "Dotonbori",
+        "description": "The heart of Osaka's food culture. Enjoy diverse gourmet experiences alongside iconic signs like Glico and Kani Doraku."
+      },
+      "usj": {
+        "title": "Universal Studios Japan",
+        "description": "A theme park featuring popular movie attractions. Immerse yourself in worlds like Harry Potter and Minions."
+      }
+    }
+  },
+  "tips": {
+    "title": "Travel Tips",
+    "subtitle": "Information and tips to make the most of your Osaka experience.",
+    "seasonal": {
+      "title": "Seasonal Tourism Information",
+      "spring": {
+        "title": "Spring (March - May)",
+        "description": "Cherry blossom season. Osaka Castle Park and the Mint Bureau's cherry blossom tunnel are especially recommended. The weather is mild and perfect for sightseeing."
+      },
+      "summer": {
+        "title": "Summer (June - August)",
+        "description": "Summer festivals like Tenjin Matsuri are held. It's hot and humid, so remember to stay hydrated and take breaks in cool places."
+      },
+      "autumn": {
+        "title": "Autumn (September - November)",
+        "description": "Autumn foliage season. Expo Park and Minoo Park are beautiful autumn spots. The climate is comfortable and suitable for tourism."
+      },
+      "winter": {
+        "title": "Winter (December - February)",
+        "description": "Beautiful illumination season. Osaka Castle Illuminage and Festival of Lights are held. The cold is milder than Tokyo."
+      }
+    },
+    "cultural": {
+      "title": "Local Tips and Cultural Advice",
+      "transport": {
+        "title": "Transportation Tips",
+        "tip1": "Purchase the Osaka Amazing Pass for unlimited access to major tourist facilities and city transportation.",
+        "tip2": "Buy an ICOCA card for smooth use of trains and buses in the Kansai region.",
+        "tip3": "The subway's Midosuji and Chuo lines connect major tourist destinations."
+      },
+      "manners": {
+        "title": "Cultural Etiquette",
+        "tip1": "Osaka people are more friendly than Tokyo residents, and you can enjoy conversations with shop staff.",
+        "tip2": "When eating okonomiyaki or takoyaki, use the provided chopsticks or picks.",
+        "tip3": "On escalators in Kansai, stand on the right side and leave the left side for people in a hurry (opposite to Tokyo)."
+      },
+      "phrases": {
+        "title": "Useful Japanese Phrases",
+        "hello": "Hello",
+        "thanks": "Thank you",
+        "excuse": "Excuse me/Sorry",
+        "price": "How much is it?"
+      }
+    }
+  },
+  "gallery": {
+    "title": "Photo Gallery",
+    "subtitle": "Introducing Osaka's charming landscapes and culture through photographs.",
+    "filters": {
+      "all": "All",
+      "temples": "Temples",
+      "food": "Food",
+      "cityscape": "Cityscape"
+    },
+    "places": {
+      "shitennoji": {
+        "title": "Shitennoji Temple",
+        "description": "Japan's oldest official temple"
+      },
+      "sumiyoshi": {
+        "title": "Sumiyoshi Taisha",
+        "description": "Representative shrine of Japan"
+      },
+      "takoyaki": {
+        "title": "Takoyaki",
+        "description": "Osaka's famous specialty food"
+      },
+      "okonomiyaki": {
+        "title": "Okonomiyaki",
+        "description": "Kansai-style taste"
+      },
+      "shinsekai": {
+        "title": "Shinsekai",
+        "description": "Retro atmosphere district"
+      },
+      "umeda": {
+        "title": "Umeda Sky Building",
+        "description": "Floating Garden Observatory"
+      },
+      "kuromon": {
+        "title": "Kuromon Ichiba Market",
+        "description": "Osaka's kitchen"
+      },
+      "katsuoji": {
+        "title": "Katsuoji Temple",
+        "description": "Famous for 'victory daruma' prayer temple"
+      }
+    }
+  },
+  "booking": {
+    "title": "Book Your Osaka Trip",
+    "subtitle": "Book now and experience the charm of Osaka. Early booking benefits are also available.",
+    "form": {
+      "name": "Name",
+      "email": "Email Address",
+      "checkin": "Check-in",
+      "checkout": "Check-out",
+      "adults": "Adults",
+      "children": "Children",
+      "planSelection": "Plan Selection",
+      "standardPlan": "Standard Plan (¥35,000~)",
+      "premiumPlan": "Premium Plan (¥55,000~)",
+      "familyPlan": "Family Plan (¥65,000~)",
+      "bookNow": "Book Now"
+    },
+    "benefits": {
+      "title": "Booking Benefits",
+      "benefit1": "Free Osaka Castle entrance ticket",
+      "benefit2": "Airport transfer service from Kansai Airport",
+      "benefit3": "Osaka gourmet map included",
+      "benefit4": "Free cancellation up to 30 days before"
+    }
+  },
+  "footer": {
+    "title": "Osaka Guide",
+    "description": "We provide travel plans to maximize your Osaka experience.",
+    "links": "Links",
+    "contact": "Contact",
+    "address": "1-1-1 Umeda, Kita-ku, Osaka-shi, Osaka 530-0001",
+    "phone": "06-1234-5678",
+    "email": "info@osakatravel.jp",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Get the latest information and deals delivered to you.",
+    "subscribe": "Subscribe",
+    "copyright": "© 2025 Osaka Travel. All rights reserved."
+  }
+}
